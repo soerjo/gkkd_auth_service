@@ -16,5 +16,5 @@ export class UserDto {
   @IsString()
   @MinLength(8)
   @IsNotEmpty()
-  pasword: string;
+  password: string;
 }

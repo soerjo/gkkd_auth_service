@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { MainEntityAbstract } from '../../../common/abstract/main-entity.abstract';
 import { Column, Entity } from 'typeorm';
 
@@ -9,6 +10,11 @@ export class UserEntity extends MainEntityAbstract {
   @Column({ unique: true })
   email: string;
 
-  @Column({ unique: true })
-  pasword: string;
+  @Exclude()
+  @Column({ nullable: true })
+  password: string;
+
+  @Exclude()
+  @Column({ nullable: true })
+  temp_password: string;
 }
