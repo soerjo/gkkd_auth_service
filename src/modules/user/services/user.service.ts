@@ -64,6 +64,9 @@ export class UserService implements OnApplicationBootstrap {
     const updateUser = await this.userRepository.save({
       ...user,
       ...updateUserDto,
+      password: updateUserDto.password
+        ? encryptPassword(updateUserDto.password)
+        : user.password,
     });
 
     return updateUser.id;
